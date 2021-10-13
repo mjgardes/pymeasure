@@ -80,6 +80,13 @@ class PrologixAdapter(SerialAdapter):
         self.write("++eoi 1")  # Append end-of-line to commands
         self.write("++eos 2")  # Append line-feed to commands
 
+    def __del__(self):
+        """ Ensures that the Serial connection is closed upon object
+        deletion if it is open
+        """
+        if self.connection.isOpen():
+            self.connection.close()
+            
     def ask(self, command):
         """ Ask the Prologix controller, include a forced delay for some instruments.
 

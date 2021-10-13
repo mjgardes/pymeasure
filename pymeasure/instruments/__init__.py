@@ -40,6 +40,7 @@ from . import deltaelektronika
 from . import fwbell
 from . import hp
 from . import keithley
+from . import kepco
 from . import keysight
 from . import lakeshore
 from . import newport
